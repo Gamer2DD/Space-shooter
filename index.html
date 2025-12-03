@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Neon Cyber Shooter: HP Update</title>
+<title>Neon Cyber Shooter: Final Assets</title>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700;900&display=swap');
 
@@ -322,17 +322,17 @@ const Sprites = {
     enemy: new Image()
 };
 
-// Available Ships
+// Available Ships - UPDATED 1st URL
 const shipList = [
-    "https://i.ibb.co/21NjByDF/ei-1764762505746-removebg-preview.png",
+    "https://img.sanishtech.com/u/552ac9f395268955c73b32c80e590f7a.png",
     "https://img.sanishtech.com/u/e4be9343ed2b8188905c77582f83dd7a.png",
     "https://img.sanishtech.com/u/53120d20d09c9464882155b4e368946e.png",
     "https://img.sanishtech.com/u/0185bf7185eb2a4187e2989af261c6a3.png"
 ];
 let selectedShipIdx = 0;
 
-// Enemy Image
-Sprites.enemy.src = "https://i.ibb.co/XxPDFqB6/ei-1764762527086-removebg-preview-1.png";
+// Enemy Image - UPDATED URL
+Sprites.enemy.src = "https://img.sanishtech.com/u/da468679f15a03c445339287290d9dd1.png";
 
 // Init Ship Selector
 const shipContainer = document.getElementById("shipSelector");
@@ -485,9 +485,9 @@ let bullets = [];
 let enemies = [];
 let particles = [];
 let texts = [];
-let healthPacks = []; // New Health Pack Array
+let healthPacks = []; 
 let alarmTimer = 0;
-let hpSpawnTimer = 0; // Timer for HP spawn
+let hpSpawnTimer = 0; 
 
 /** UI **/
 const speedSlider = document.getElementById("speedSlider");
@@ -673,22 +673,16 @@ function update(dt) {
     hpSpawnTimer -= dt;
     if(hpSpawnTimer <= 0) {
         spawnHealthPack();
-        // Spawn subsequent packs every 4 to 5 seconds
         hpSpawnTimer = 4 + Math.random(); 
     }
 
-    // Update Health Packs
     for(let i = healthPacks.length - 1; i >= 0; i--) {
         let hp = healthPacks[i];
-        hp.y += hp.vy * dt; // Float down
-        
-        // Rotate logic for visual effect
+        hp.y += hp.vy * dt; 
         hp.rot += dt; 
 
-        // Check Collision (Simple Distance)
         let dist = Math.hypot(player.x - hp.x, player.y - hp.y);
         if(dist < player.r + hp.r) {
-            // Collect!
             player.hp = Math.min(player.maxHp, player.hp + 30);
             Sound.heal();
             addText(player.x, player.y - 40, "+30 HP", "#00ff00");
@@ -698,7 +692,6 @@ function update(dt) {
             continue;
         }
 
-        // Remove if off screen
         if(hp.y > height + 50) {
             healthPacks.splice(i, 1);
         }
