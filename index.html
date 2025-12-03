@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Neon Cyber Shooter: Final Assets</title>
+<title>Neon Cyber Shooter: New Audio</title>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700;900&display=swap');
 
@@ -322,7 +322,7 @@ const Sprites = {
     enemy: new Image()
 };
 
-// Available Ships - UPDATED 1st URL
+// Available Ships - 1st Ship Updated
 const shipList = [
     "https://img.sanishtech.com/u/552ac9f395268955c73b32c80e590f7a.png",
     "https://img.sanishtech.com/u/e4be9343ed2b8188905c77582f83dd7a.png",
@@ -331,7 +331,7 @@ const shipList = [
 ];
 let selectedShipIdx = 0;
 
-// Enemy Image - UPDATED URL
+// Enemy Image - Updated
 Sprites.enemy.src = "https://img.sanishtech.com/u/da468679f15a03c445339287290d9dd1.png";
 
 // Init Ship Selector
@@ -371,10 +371,10 @@ function saveHighScore(diff, score) {
     return false;
 }
 
-/** 🔊 SOUND SYSTEM **/
+/** 🔊 SOUND SYSTEM (NEW AUDIO URL) **/
 const Sound = {
     ctx: null,
-    introAudio: new Audio('https://colonial-beige-a4661y76xl-8691g7711x.edgeone.dev/YouCut_20251203_170911325.mp4'),
+    introAudio: new Audio('https://s19.aconvert.com/convert/p3r68-cdx67/xwg4r-1pq5c.mp3'),
     
     init: function() {
         if (!this.ctx) {
